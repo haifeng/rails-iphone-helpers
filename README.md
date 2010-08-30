@@ -3,35 +3,35 @@ iPhone helpers
 
 Rails plugin providing helpers used to generate iPhone specific html tags.
 
-Example
+Examples
 =======
 
-viewport
---------
+### viewport
+
     <%= iphone :viewport %>
 
-apple touch icon
-----------------
+### apple touch icon
+
     <%= iphone :icon, :href => "iphone.png" %>
 
-apple touch icon precomposed
-----------------------------
+### apple touch icon precomposed
+
     <%= iphone :icon, :href => "iphone.png", :precomposed => true %>
 
-apple touch startup image
--------------------------
+### apple touch startup image
+
     <%= iphone :splash, :href => "splash.png" %>
 
-apple mobile web app status bar style
--------------------------------------
+### apple mobile web app status bar style
+
     <% iphone :status_bar %>
 
-apple mobile web app status bar style black
--------------------------------------------
+### apple mobile web app status bar style black
+
     <% iphone :status_bar, :color => "black" %>
 
-apple mobile web app status bar style black translucent
--------------------------------------------
+### apple mobile web app status bar style black translucent
+
     <% iphone :status_bar, :color => "black-translucent" %>
 
 License
