@@ -36,13 +36,9 @@ module ::ActionView::Helpers::TagHelper
   end
 
   def iphone_viewport(options)
-    translate = {:initial_scale => :'initial-scale', :maximum_scale => :'maximum-scale', :minimum_scale => :'minimum-scale', :user_scalable => :'user-scalable'}
+    options.each { |k,v| options[k.to_s.gsub('_', '-').to_sym] = v if options.delete(k) }
     defaults = {:'initial-scale' => 1, :'maximum-scale' => 1, :width => 'device-width'}
-    content = options.each do |k,v|
-      k = (translate.key?(k) && options.delete(k) && translate[k]) || k
-      options[k] = v
-    end
-    content = defaults.merge(content).collect { |k,v| "#{k}=#{v}" }.join('; ')
+    content = defaults.merge(options).collect { |k,v| "#{k}=#{v}" }.join('; ')
     options = {:content => content, :name => 'viewport'}
     [:meta, options]
   end
