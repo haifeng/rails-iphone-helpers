@@ -34,6 +34,23 @@ Examples
 
     <%= iphone :status_bar, :color => "black-translucent" %>
 
+Install
+=======
+
+### Standard install using Rails 3.0.x
+
+    rails plugin install git@github.com:mptre/rails-iphone-helpers.git
+
+### Install using Git submodule
+
+Run the following command from your Rails root directory.
+
+    git submodule add git@github.com:mptre/rails-iphone-helpers.git vendor/plugins/iphone_helpers
+
+You should be able to update this plugin in the future by running the following command from your Rails root directory.
+
+    git submodule update
+
 License
 =======
 
