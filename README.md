@@ -24,15 +24,15 @@ Examples
 
 ### apple mobile web app status bar style
 
-    <% iphone :status_bar %>
+    <%= iphone :status_bar %>
 
 ### apple mobile web app status bar style black
 
-    <% iphone :status_bar, :color => "black" %>
+    <%= iphone :status_bar, :color => "black" %>
 
 ### apple mobile web app status bar style black translucent
 
-    <% iphone :status_bar, :color => "black-translucent" %>
+    <%= iphone :status_bar, :color => "black-translucent" %>
 
 License
 =======
