@@ -1,7 +1,7 @@
 module ::ActionView::Helpers::TagHelper
   def iphone(key, *options)
-    options = options.extract_options!
-    tagname, attributes = send("iphone_#{key}", options || {})
+    options = options.extract_options! || {}
+    tagname, attributes = send("iphone_#{key}", options)
 
     tag(tagname, attributes)
   end
