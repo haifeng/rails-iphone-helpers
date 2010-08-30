@@ -1,7 +1,7 @@
 module ::ActionView::Helpers::TagHelper
   def iphone(key, *options)
     options = options.extract_options!
-    tagname, attributes = send("iphone_#{key}", options)
+    tagname, attributes = send("iphone_#{key}", options || {})
 
     tag(tagname, attributes)
   end
@@ -36,8 +36,13 @@ module ::ActionView::Helpers::TagHelper
   end
 
   def iphone_viewport(options)
-    defaults = {'initial-scale' => 1.0, 'maximum-scale' => 1.0, 'width' => 'device-width'}.to_options!
-    content = defaults.merge(options).collect { |k,v| "#{k}=#{v}" }.join('; ')
+    translate = {:initial_scale => :'initial-scale', :maximum_scale => :'maximum-scale', :minimum_scale => :'minimum-scale', :user_scalable => :'user-scalable'}
+    defaults = {:'initial-scale' => 1, :'maximum-scale' => 1, :width => 'device-width'}
+    content = options.each do |k,v|
+      k = (translate.key?(k) && options.delete(k) && translate[k]) || k
+      options[k] = v
+    end
+    content = defaults.merge(content).collect { |k,v| "#{k}=#{v}" }.join('; ')
     options = {:content => content, :name => 'viewport'}
     [:meta, options]
   end

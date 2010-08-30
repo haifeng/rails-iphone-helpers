@@ -10,6 +10,10 @@ Examples
 
     <%= iphone :viewport %>
 
+### viewport with custom attributes
+
+    <%= iphone :viewport, :width => 320, :height => 480, :initial_scale => 2.5, :minimum_scale => 0.5, :maximum_scale => 3, :user_scalable => 'no' %>
+
 ### apple touch icon
 
     <%= iphone :icon, :href => "iphone.png" %>
