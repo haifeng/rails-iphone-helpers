@@ -36,8 +36,9 @@ module ::ActionView::Helpers::TagHelper
   end
 
   def iphone_viewport(options)
-    options[:name] = 'viewport'
-    options[:content] = 'width=device-width; initial-scale=1.0; maximum-scale=1.0;'
+    defaults = {'initial-scale' => 1.0, 'maximum-scale' => 1.0, 'width' => 'device-width'}.to_options!
+    content = defaults.merge(options).collect { |k,v| "#{k}=#{v}" }.join('; ')
+    options = {:content => content, :name => 'viewport'}
     [:meta, options]
   end
 end
