@@ -38,6 +38,14 @@ Examples
 
     <%= iphone :status_bar, :color => "black-translucent" %>
 
+### disable telephone format detection
+
+    <%= iphone :format_detection, :telephone => false %>
+
+### enable telephone format detection
+
+    <%= iphone :format_detection, :telephone => true %>
+
 Install
 =======
 

@@ -8,6 +8,13 @@ module ::ActionView::Helpers::TagHelper
 
   protected
 
+  def iphone_format_detection(options)
+    options[:name] = 'format-detection'
+    options[:content] = "telephone=#{(options[:telephone] && 'yes') || 'no'}"
+    options[:telephone] = nil
+    [:meta, options]
+  end
+
   def iphone_fullscreen(options)
     options[:name] = 'apple-mobile-web-app-capable'
     options[:content] = 'yes'

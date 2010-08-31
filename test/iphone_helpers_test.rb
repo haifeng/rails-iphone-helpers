@@ -31,11 +31,19 @@ class IphoneHelpersTest < ActionView::TestCase
     assert_equal iphone(:splash, :href => 'splash.png'), '<link href="/images/splash.png" rel="apple-touch-startup-image" />'
   end
 
+  test 'format detection disable telephone' do
+    assert_equal iphone(:format_detection, :telephone => false), '<meta content="telephone=no" name="format-detection" />'
+  end
+
+  test 'format detection enable telephone' do
+    assert_equal iphone(:format_detection, :telephone => true), '<meta content="telephone=yes" name="format-detection" />'
+  end
+
   test 'viewport' do
-    assert_equal iphone(:viewport), '<meta content="width=device-width; initial-scale=1; maximum-scale=1" name="viewport" />'
+    assert_equal iphone(:viewport), '<meta content="initial-scale=1; maximum-scale=1; width=device-width" name="viewport" />'
   end
 
   test 'viewport with custom attributes' do
-    assert_equal iphone(:viewport, :width => 320, :height => 480, :initial_scale => 2.5, :minimum_scale => 0.5, :maximum_scale => 3, :user_scalable => 'no'), '<meta content="width=320; user-scalable=no; height=480; minimum-scale=0.5; initial-scale=2.5; maximum-scale=3" name="viewport" />'
+    assert_equal iphone(:viewport, :width => 320, :height => 480, :initial_scale => 2.5, :minimum_scale => 0.5, :maximum_scale => 3, :user_scalable => 'no'), '<meta content="initial-scale=2.5; minimum-scale=0.5; maximum-scale=3; user-scalable=no; width=320; height=480" name="viewport" />'
   end
 end
