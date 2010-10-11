@@ -44,6 +44,6 @@ class IphoneHelpersTest < ActionView::TestCase
   end
 
   test 'viewport with custom attributes' do
-    assert_equal iphone(:viewport, :width => 320, :height => 480, :initial_scale => 2.5, :minimum_scale => 0.5, :maximum_scale => 3, :user_scalable => 'no'), '<meta content="initial-scale=2.5; minimum-scale=0.5; maximum-scale=3; user-scalable=no; width=320; height=480" name="viewport" />'
+    assert_equal iphone(:viewport, :width => 320, :height => 480, :initial_scale => 2.5, :minimum_scale => 0.5, :maximum_scale => 3, :user_scalable => 'no'), '<meta content="height=480; initial-scale=2.5; maximum-scale=3; minimum-scale=0.5; user-scalable=no; width=320" name="viewport" />'
   end
 end
